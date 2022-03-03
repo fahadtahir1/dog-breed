@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation">
+
+    <fragment
+        android:id="@+id/nav_breed"
+        android:name="com.arbisoft.dogbreedsearch.presentation.breeds.BreedFragment"
+        android:label=""
+        tools:layout="@layout/fragment_breeds" >
+        <action
+            android:id="@+id/action_nav_breed_to_nav_search_breed"
+            app:destination="@id/nav_search_breed" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nav_search_breed"
+        android:name="com.arbisoft.dogbreedsearch.presentation.searchbreed.SearchBreedsDialog"
+        android:label=""
+        tools:layout="@layout/dialog_search_breed"
+        />
+
+</navigation>
