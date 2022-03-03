@@ -1,20 +1,27 @@
 package com.arbisoft.dogbreedsearch.core.base
 
+import android.app.Activity
+import android.app.Dialog
+import android.content.DialogInterface.OnShowListener
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.appcompat.app.AppCompatActivity
+import android.util.DisplayMetrics
+import android.view.*
+import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import androidx.viewbinding.ViewBinding
+import com.google.android.material.bottomsheet.BottomSheetBehavior
+import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
+
 
 abstract class BaseBottomSheetDialog<VB: ViewDataBinding> : BottomSheetDialogFragment() {
 
     private var _binding:VB? = null
 
-    val binding: VB = _binding!!
+    val binding: VB
+    get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -22,7 +29,7 @@ abstract class BaseBottomSheetDialog<VB: ViewDataBinding> : BottomSheetDialogFra
         savedInstanceState: Bundle?
     ): View? {
         _binding = DataBindingUtil.inflate(inflater,layout,parent,false)
-        return binding.root
+        return _binding?.root
     }
 
     override fun onDestroy() {

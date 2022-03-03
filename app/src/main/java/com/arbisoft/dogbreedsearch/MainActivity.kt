@@ -6,8 +6,10 @@ import androidx.navigation.NavController
 import androidx.navigation.NavHost
 import androidx.navigation.fragment.NavHostFragment
 import com.arbisoft.dogbreedsearch.databinding.ActivityMainBinding
+import dagger.hilt.android.AndroidEntryPoint
 import java.security.AccessController
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding

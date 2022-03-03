@@ -1,7 +1,5 @@
 package com.arbisoft.dogbreedsearch.di.module
 
-import android.text.TextUtils
-import androidx.databinding.ktx.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import java.util.concurrent.TimeUnit
@@ -17,20 +15,18 @@ class ApiHttpModule {
             val request = chain.request()
             with(chain) {
                 proceed(
-                        request.newBuilder().addHeader(
-                            "x-api-key",
-                            "{$$.env.x-api-key}"
-                        ).build()
-
+                    request.newBuilder().addHeader(
+                        "x-api-key",
+                        "{$$.env.x-api-key}"
+                    ).build()
                 )
             }
         }
 
-        if (BuildConfig.DEBUG) {
-            val logging = HttpLoggingInterceptor()
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY)
-            httpClient.addInterceptor(logging)
-        }
+        val logging = HttpLoggingInterceptor()
+        logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+        httpClient.addInterceptor(logging)
+
         return httpClient.build()
     }
 }

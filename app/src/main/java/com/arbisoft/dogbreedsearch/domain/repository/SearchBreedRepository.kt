@@ -3,8 +3,7 @@ package com.arbisoft.dogbreedsearch.domain.repository
 import com.arbisoft.dogbreedsearch.data.model.BreedsDto
 
 
-interface BreedSearchRepository {
+interface SearchBreedRepository {
 
     suspend fun searchBreed(query: String): BreedsDto
-
 }
