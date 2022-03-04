@@ -40,6 +40,8 @@ class SearchBreedsDialog : BaseBottomSheetDialog<DialogSearchBreedBinding>() {
                     if (items.isEmpty()) {
                         binding.tvNotFound.visibility = View.VISIBLE
                     }
+                    binding.progressBar.isVisible = false
+                    binding.tvNotFound.isVisible = false
                     val breedNames = items.map { it.name }
                     initBreedListView(breedNames)
                 }
@@ -52,8 +54,10 @@ class SearchBreedsDialog : BaseBottomSheetDialog<DialogSearchBreedBinding>() {
             requireContext(), android.R.layout.simple_expandable_list_item_1,
             items
         )
-
         binding.lvDogBreeds.adapter = adapter
+        binding.lvDogBreeds.setOnItemClickListener { parent, view, position, id ->
+            viewModel.searchBreeds(items[position])
+        }
     }
 
     override val layout: Int = R.layout.dialog_search_breed

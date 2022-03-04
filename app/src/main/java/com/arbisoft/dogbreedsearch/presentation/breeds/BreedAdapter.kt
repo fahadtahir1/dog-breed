@@ -12,7 +12,7 @@ class BreedAdapter : BaseRecyclerAdapter<Breed, ItemMainDogBinding>() {
         holder: Companion.BaseViewHolder<ItemMainDogBinding>,
         position: Int
     ) {
-        holder.binding.data = items[position]
+        holder.binding.data = items[position].image.url
         holder.binding.root.setOnClickListener {
             listener?.invoke(holder.binding, items[position], position)
         }

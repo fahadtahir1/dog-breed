@@ -1,7 +1,7 @@
 package com.arbisoft.dogbreedsearch.di.module
 
 import com.arbisoft.dogbreedsearch.BuildConfig.BaseApiUrl
-import com.arbisoft.dogbreedsearch.data.remote.BreedAPI
+import com.arbisoft.dogbreedsearch.data.remote.AppService
 import com.jakewharton.retrofit2.adapter.kotlin.coroutines.CoroutineCallAdapterFactory
 import dagger.Module
 import dagger.Provides
@@ -18,13 +18,13 @@ import javax.inject.Singleton
 class ApiModule {
     @Singleton
     @Provides
-    fun provideRetrofitService(): BreedAPI =
+    fun provideRetrofitService(): AppService =
         Retrofit.Builder()
             .baseUrl(BaseApiUrl)
             .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(ApiHttpModule().getHTTPClient())
             .build()
-            .create(BreedAPI::class.java)
+            .create(AppService::class.java)
 
 }

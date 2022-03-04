@@ -1,6 +1,6 @@
 package com.arbisoft.dogbreedsearch.di
 
-import com.arbisoft.dogbreedsearch.data.remote.BreedAPI
+import com.arbisoft.dogbreedsearch.data.remote.AppService
 import com.arbisoft.dogbreedsearch.data.repository.BreedListRepositoryImpl
 import com.arbisoft.dogbreedsearch.data.repository.BreedSearchRepositoryImpl
 import com.arbisoft.dogbreedsearch.domain.repository.BreedListRepository
@@ -16,12 +16,12 @@ import dagger.hilt.components.SingletonComponent
 object AppModule {
 
     @Provides
-    fun provideBreedSearchRepository(api: BreedAPI) : SearchBreedRepository{
+    fun provideBreedSearchRepository(api: AppService) : SearchBreedRepository{
         return BreedSearchRepositoryImpl(api)
     }
 
     @Provides
-    fun provideBreedListRepository(api: BreedAPI): BreedListRepository {
+    fun provideBreedListRepository(api: AppService): BreedListRepository {
         return BreedListRepositoryImpl(api)
     }
 }

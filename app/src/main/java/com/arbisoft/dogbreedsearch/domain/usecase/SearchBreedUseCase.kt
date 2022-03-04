@@ -17,14 +17,14 @@ class SearchBreedUseCase @Inject constructor(private val repository: SearchBreed
             emit(Resource.Loading())
             val data = repository.searchBreed(query)
             val domainData =
-                if(data.breeds != null) data.breeds?.map { it -> it.toDomainBreeds() } else emptyList()
+                if(data.isNullOrEmpty().not()) data?.map { it -> it.toDomainBreeds() } else emptyList()
             emit(Resource.Success(data = domainData!!))
         } catch (e: HttpException) {
             emit(Resource.Error(message = e.localizedMessage ?: "An Unknown error occurred"))
         } catch (e: IOException) {
             emit(Resource.Error(message = e.localizedMessage ?: "Check Connectivity"))
         } catch (e: Exception) {
-
+            emit(Resource.Error(message = e.localizedMessage ?: "Check Connectivity"))
         }
     }
 }
