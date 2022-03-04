@@ -1,4 +1,4 @@
-package com.arbisoft.dogbreedsearch.core
+package com.arbisoft.dogbreedsearch.utils
 
 object Utils {
 }

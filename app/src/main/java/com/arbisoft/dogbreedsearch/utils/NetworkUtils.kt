@@ -1,4 +1,4 @@
-package com.arbisoft.dogbreedsearch.core
+package com.arbisoft.dogbreedsearch.utils
 
 import android.content.Context
 import android.location.LocationManager

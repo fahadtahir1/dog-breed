@@ -22,7 +22,6 @@ class ApiModule {
         Retrofit.Builder()
             .baseUrl(BaseApiUrl)
             .addConverterFactory(GsonConverterFactory.create())
-            .addCallAdapterFactory(CoroutineCallAdapterFactory())
             .client(ApiHttpModule().getHTTPClient())
             .build()
             .create(BreedAPI::class.java)

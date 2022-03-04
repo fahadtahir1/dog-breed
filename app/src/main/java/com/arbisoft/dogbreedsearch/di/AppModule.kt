@@ -1,27 +1,42 @@
 package com.arbisoft.dogbreedsearch.di
 
-import com.arbisoft.dogbreedsearch.data.remote.BreedAPI
-import com.arbisoft.dogbreedsearch.data.repository.BreedListRepositoryImpl
-import com.arbisoft.dogbreedsearch.data.repository.BreedSearchRepositoryImpl
-import com.arbisoft.dogbreedsearch.domain.repository.BreedListRepository
-import com.arbisoft.dogbreedsearch.domain.repository.SearchBreedRepository
+import android.app.Application
+import android.content.Context
+import com.arbisoft.dogbreedsearch.utils.CommonConstants
+import com.arbisoft.dogbreedsearch.utils.ResourceProvider
+import com.arbisoft.dogbreedsearch.managers.DataManager
+import com.arbisoft.dogbreedsearch.managers.DataManagerImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
+import javax.inject.Singleton
 
 
 @InstallIn(SingletonComponent::class)
 @Module
 object AppModule {
-
     @Provides
-    fun provideBreedSearchRepository(api: BreedAPI) : SearchBreedRepository{
-        return BreedSearchRepositoryImpl(api)
+    @Singleton
+    fun provideContext(application: Application): Context {
+        return application
     }
 
+
     @Provides
-    fun provideBreedListRepository(api: BreedAPI): BreedListRepository {
-        return BreedListRepositoryImpl(api)
+    fun providePreferenceName(): String {
+        return CommonConstants.PREF_NAME
     }
+    
+    @Provides
+    fun provideResourceProvider(context: Context): ResourceProvider {
+        return ResourceProvider(context.applicationContext)
+    }
+
+    @Singleton
+    @Provides
+    fun provideDataManager(dataManagerImpl: DataManagerImpl): DataManager {
+        return dataManagerImpl
+    }
+    
 }

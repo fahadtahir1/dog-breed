@@ -1,18 +1,9 @@
-package com.arbisoft.dogbreedsearch.core.base
+package com.arbisoft.dogbreedsearch.utils.base
 
-import android.app.Activity
-import android.app.Dialog
-import android.content.DialogInterface.OnShowListener
-import android.graphics.Color
-import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
-import android.util.DisplayMetrics
 import android.view.*
-import android.widget.FrameLayout
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
-import com.google.android.material.bottomsheet.BottomSheetBehavior
-import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 

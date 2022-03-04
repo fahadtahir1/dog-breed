@@ -1,16 +1,17 @@
-package com.arbisoft.dogbreedsearch
+package com.arbisoft.dogbreedsearch.ui.navigation
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.activity.viewModels
 import androidx.navigation.NavController
-import androidx.navigation.NavHost
 import androidx.navigation.fragment.NavHostFragment
+import com.arbisoft.dogbreedsearch.BR
+import com.arbisoft.dogbreedsearch.R
 import com.arbisoft.dogbreedsearch.databinding.ActivityMainBinding
+import com.arbisoft.dogbreedsearch.utils.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
-import java.security.AccessController
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity() {
+class MainActivity : BaseActivity<MainViewModel,ActivityMainBinding>(R.layout.activity_main) {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var navController: NavController
@@ -27,4 +28,8 @@ class MainActivity : AppCompatActivity() {
     override fun onSupportNavigateUp(): Boolean {
         return navController.navigateUp() || super.onSupportNavigateUp()
     }
+
+    override val viewModel: MainViewModel by viewModels()
+
+    override fun getBindingVariable(): Int = BR._all
 }

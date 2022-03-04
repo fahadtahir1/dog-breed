@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/nav_breed"
-        android:name="com.arbisoft.dogbreedsearch.presentation.breeds.BreedFragment"
+        android:name="com.arbisoft.dogbreedsearch.ui.breeds.BreedFragment"
         android:label=""
         tools:layout="@layout/fragment_breeds" >
         <action
@@ -17,7 +17,7 @@
 
     <dialog
         android:id="@+id/nav_search_breed"
-        android:name="com.arbisoft.dogbreedsearch.presentation.searchbreed.SearchBreedsDialog"
+        android:name="com.arbisoft.dogbreedsearch.ui.searchbreed.SearchBreedsDialog"
         android:label=""
         tools:layout="@layout/dialog_search_breed"
         />

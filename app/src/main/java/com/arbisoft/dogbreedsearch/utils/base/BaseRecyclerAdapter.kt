@@ -1,4 +1,4 @@
-package com.arbisoft.dogbreedsearch.core.base
+package com.arbisoft.dogbreedsearch.utils.base
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

@@ -1,4 +1,4 @@
-package com.arbisoft.dogbreedsearch.core
+package com.arbisoft.dogbreedsearch.utils
 
 sealed class Resource<T>(val data: T? = null, val message: String? = null) {
 

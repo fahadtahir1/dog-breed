@@ -1,7 +1,7 @@
-package com.arbisoft.dogbreedsearch.presentation.breeds
+package com.arbisoft.dogbreedsearch.ui.breeds
 
 import com.arbisoft.dogbreedsearch.R
-import com.arbisoft.dogbreedsearch.core.base.BaseRecyclerAdapter
+import com.arbisoft.dogbreedsearch.utils.base.BaseRecyclerAdapter
 import com.arbisoft.dogbreedsearch.databinding.ItemMainDogBinding
 import com.arbisoft.dogbreedsearch.domain.model.Breed
 

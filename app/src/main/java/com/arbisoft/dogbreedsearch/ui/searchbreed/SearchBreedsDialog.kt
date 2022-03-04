@@ -1,16 +1,15 @@
-package com.arbisoft.dogbreedsearch.presentation.searchbreed
+package com.arbisoft.dogbreedsearch.ui.searchbreed
 
 import android.os.Bundle
 import android.view.View
 import android.widget.ArrayAdapter
 import android.widget.Toast
-import androidx.core.view.isVisible
 import androidx.fragment.app.activityViewModels
 import androidx.lifecycle.lifecycleScope
 import com.arbisoft.dogbreedsearch.R
-import com.arbisoft.dogbreedsearch.core.base.BaseBottomSheetDialog
+import com.arbisoft.dogbreedsearch.utils.base.BaseBottomSheetDialog
 import com.arbisoft.dogbreedsearch.databinding.DialogSearchBreedBinding
-import com.arbisoft.dogbreedsearch.presentation.breeds.BreedsViewModel
+import com.arbisoft.dogbreedsearch.ui.breeds.BreedsViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint

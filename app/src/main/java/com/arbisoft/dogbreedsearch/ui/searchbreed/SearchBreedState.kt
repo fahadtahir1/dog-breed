@@ -1,4 +1,4 @@
-package com.arbisoft.dogbreedsearch.presentation.searchbreed
+package com.arbisoft.dogbreedsearch.ui.searchbreed
 
 import com.arbisoft.dogbreedsearch.domain.model.Breed
 
