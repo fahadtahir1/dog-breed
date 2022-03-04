@@ -20,6 +20,14 @@ class BreedFragment : BaseFragment<BreedsViewModel,FragmentBreedsBinding>(R.layo
 
         viewModel.fetchBreeds()
 
+        viewModel.breedItems.observe(viewLifecycleOwner) {items ->
+            val breedImages = items.map { it.image.url }
+
+            bindings.rvDogImages.adapter = BreedAdapter().also {
+                it.items = breedImages as MutableList<String>
+            }
+        }
+
         bindings.laySelection.setOnClickListener { findNavController().navigate(R.id.action_nav_breed_to_nav_search_breed) }
     }
 

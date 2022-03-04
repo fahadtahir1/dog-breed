@@ -1,6 +1,8 @@
 package com.arbisoft.dogbreedsearch.ui.breeds
 
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
+import com.arbisoft.dogbreedsearch.models.Breed
 import com.arbisoft.dogbreedsearch.utils.Resource
 import com.arbisoft.dogbreedsearch.utils.base.BaseViewModel
 import dagger.hilt.android.lifecycle.HiltViewModel
@@ -12,6 +14,7 @@ class BreedsViewModel @Inject constructor(
     private val repository: BreedRespository
 ) : BaseViewModel<BreedNavigator>(repository.dataManager) {
 
+    val breedItems = MutableLiveData<List<Breed>>()
 
     fun fetchBreeds(){
         viewModelScope.launch {
@@ -26,11 +29,12 @@ class BreedsViewModel @Inject constructor(
                     is Resource.Success -> {
                         getNavigator()?.hideProgressBar()
 
-                        it.message
+                        breedItems.value = it.data ?: emptyList()
                     }
 
                     is Resource.Error -> {
                         getNavigator()?.hideProgressBar()
+                        getNavigator()?.showErrorMessage(it.message)
                     }
                 }
             }
@@ -39,8 +43,7 @@ class BreedsViewModel @Inject constructor(
     }
 
 
-
-
+    val breedSearchItems = MutableLiveData<List<Breed>>()
 
     fun searchBreeds(query: String){
         viewModelScope.launch {
@@ -48,11 +51,19 @@ class BreedsViewModel @Inject constructor(
             repository.searchBreeds(query).also {
                 when(it){
 
-                    is Resource.Loading -> {}
+                    is Resource.Loading -> {
+                        getNavigator()?.showProgressBar()
+                    }
 
-                    is Resource.Success -> {}
+                    is Resource.Success -> {
+                        getNavigator()?.hideProgressBar()
+                        breedItems.value = it.data ?: emptyList()
+                    }
 
-                    is Resource.Error -> {}
+                    is Resource.Error -> {
+                        getNavigator()?.hideProgressBar()
+                        getNavigator()?.showErrorMessage(it.message)
+                    }
                 }
             }
 

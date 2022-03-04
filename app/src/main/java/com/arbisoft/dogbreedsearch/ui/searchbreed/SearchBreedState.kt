@@ -1,6 +1,7 @@
 package com.arbisoft.dogbreedsearch.ui.searchbreed
 
-import com.arbisoft.dogbreedsearch.domain.model.Breed
+import com.arbisoft.dogbreedsearch.models.Breed
+
 
 data class SearchBreedState(
     val isLoading: Boolean = false,

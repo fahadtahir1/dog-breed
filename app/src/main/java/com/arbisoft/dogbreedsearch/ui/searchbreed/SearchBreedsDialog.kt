@@ -22,28 +22,28 @@ class SearchBreedsDialog : BaseBottomSheetDialog<DialogSearchBreedBinding>() {
 
         viewModel.fetchBreeds()
 
-        lifecycleScope.launchWhenCreated {
-            viewModel.breedsList.collect {
-                if (it.isLoading) {
-                    binding.progressBar.isVisible = true
-                    binding.tvNotFound.isVisible = false
-                }
-
-                if (it.error.isNotBlank()) {
-                    binding.progressBar.isVisible = false
-                    binding.tvNotFound.isVisible = true
-                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
-                }
-
-                it.data?.let { items ->
-                    if (items.isEmpty()) {
-                        binding.tvNotFound.visibility = View.VISIBLE
-                    }
-                    val breedNames = items.map { it.name }
-                    initBreedListView(breedNames)
-                }
-            }
-        }
+//        lifecycleScope.launchWhenCreated {
+//            viewModel.breedsList.collect {
+//                if (it.isLoading) {
+//                    binding.progressBar.isVisible = true
+//                    binding.tvNotFound.isVisible = false
+//                }
+//
+//                if (it.error.isNotBlank()) {
+//                    binding.progressBar.isVisible = false
+//                    binding.tvNotFound.isVisible = true
+//                    Toast.makeText(requireContext(), it.error, Toast.LENGTH_SHORT).show()
+//                }
+//
+//                it.data?.let { items ->
+//                    if (items.isEmpty()) {
+//                        binding.tvNotFound.visibility = View.VISIBLE
+//                    }
+//                    val breedNames = items.map { it.name }
+//                    initBreedListView(breedNames)
+//                }
+//            }
+//        }
     }
 
     private fun initBreedListView(items: List<String>) {
